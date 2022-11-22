@@ -6,8 +6,13 @@ namespace la_mia_pizzeria_static.Validation
     {
         protected override ValidationResult? IsValid(object? value, ValidationContext validationContext)
         {
+            if ((string)value == null)
+            {
+                return new ValidationResult("Il campo descrizione è vuoto");
+            }
+
             string stringValue = (string)value;
-             stringValue = stringValue.Trim();
+            stringValue = stringValue.Trim();
 
             char space = ' ';
 
@@ -23,9 +28,9 @@ namespace la_mia_pizzeria_static.Validation
                 return count;
             }
             count(stringValue, space);
-            
 
-            if (stringValue == null || count(stringValue, space) < 4)
+
+            if (count(stringValue, space) < 4)
             {
                 return new ValidationResult("Il campo descrizione deve contenere almeno cinque parole");
             }
