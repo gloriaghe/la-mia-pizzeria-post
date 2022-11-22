@@ -22,7 +22,8 @@ namespace la_mia_pizzeria_static.Models
             Image = image;
             Price = price;
         }
-
+         public Pizza() { 
+        }
         
     }
 }

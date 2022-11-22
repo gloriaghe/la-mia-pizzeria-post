@@ -1,6 +1,7 @@
 ﻿using la_mia_pizzeria_static.Data;
 using la_mia_pizzeria_static.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Hosting;
 
 namespace la_mia_pizzeria_static.Controllers
 {
@@ -26,6 +27,26 @@ namespace la_mia_pizzeria_static.Controllers
 
             return View(pizza);
 
+        }
+
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Create(Pizza pizza)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
+
+            db.Pizzas.Add(pizza);
+            db.SaveChanges();
+
+            return RedirectToAction("Detail", new { id = pizza.Id });
         }
     }
 }
