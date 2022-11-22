@@ -11,8 +11,8 @@ using la_mia_pizzeria_static.Data;
 namespace lamiapizzeriastatic.Migrations
 {
     [DbContext(typeof(PizzaDbContext))]
-    [Migration("20221122125934_addValidationPizza")]
-    partial class addValidationPizza
+    [Migration("20221122140445_addPizzaTable")]
+    partial class addPizzaTable
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -34,6 +34,7 @@ namespace lamiapizzeriastatic.Migrations
 
                     b.Property<string>("Description")
                         .IsRequired()
+                        .HasMaxLength(250)
                         .HasColumnType("text");
 
                     b.Property<string>("Image")

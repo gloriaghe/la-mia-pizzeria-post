@@ -24,7 +24,6 @@ namespace la_mia_pizzeria_static.Models
         public string Image { get; set; }
 
         [Required(ErrorMessage = "Il prezzo è obbligatorio")]
-        //[DataType(DataType.Currency, ErrorMessage = "Il prezzo è obbligatorio")]
         [Range(0, 200, ErrorMessage = "Il prezzo deve essere compreso fra 0 e 200")]
         public double Price { get; set; }
 

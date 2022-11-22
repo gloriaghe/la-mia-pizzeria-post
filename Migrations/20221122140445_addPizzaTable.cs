@@ -5,7 +5,7 @@
 namespace lamiapizzeriastatic.Migrations
 {
     /// <inheritdoc />
-    public partial class addValidationPizza : Migration
+    public partial class addPizzaTable : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

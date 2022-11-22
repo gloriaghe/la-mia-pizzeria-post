@@ -31,6 +31,7 @@ namespace lamiapizzeriastatic.Migrations
 
                     b.Property<string>("Description")
                         .IsRequired()
+                        .HasMaxLength(250)
                         .HasColumnType("text");
 
                     b.Property<string>("Image")
